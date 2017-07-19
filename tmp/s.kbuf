@@ -1,0 +1,16 @@
+#!/usr/bin/perl
+
+
+my $is_stop = 0;
+my $nboard = 0;
+
+if($ARGV[0]){
+    $nboard = $ARGV[0];
+}
+
+my $cmd ="cat /sys/class/fpga/fpga". sprintf("%d",$nboard). "/kbuffers";
+
+my $exe = `$cmd`;
+print $exe;
+
+1;

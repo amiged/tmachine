@@ -1,0 +1,15 @@
+#Time-stamp: <2017-07-19 18:37:56 hamada>
+
+rm -f map.tmp.txt
+./create_map_number.py |bash -
+./gencmd.py > /tmp/xxx
+
+# enter repository dir
+cd repository
+time bash /tmp/xxx
+sudo su -
+ntpdate ntp.nict.jp
+exit
+git remote add origin git@github.com:amiged/repository.git
+git push -u origin master
+
